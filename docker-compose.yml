@@ -1,6 +1,20 @@
 version: '3.1'
 
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: symfony_app
+    depends_on:
+      - mariadb
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: prod
+      APP_SECRET: e0a4ad4f0ff91eb81b68a7e3369bab4c
+      DATABASE_URL: "mysql://symfony_user:userpassword@mariadb:3306/symfony_db"
+
   mariadb:
     image: mariadb:latest
     container_name: mariadb_for_symfony
