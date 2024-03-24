@@ -26,7 +26,7 @@ class Empresa
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 14)]
+    #[ORM\Column(length: 18)]
     private ?string $cnpj = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
